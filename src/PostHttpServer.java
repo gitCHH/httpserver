@@ -12,10 +12,11 @@ public class PostHttpServer extends HttpServlet {
 
 	protected void doPost(HttpServletRequest request, HttpServletResponse response)
 			throws ServletException, IOException {
-
+                request.setCharacterEncoding("utf-8");
 		response.setContentType("text/plain; charset=UTF-8");
 		String data = readData(request);
 		response.setStatus(200);
+		response.setCharacterEncoding("utf-8");
 		// JSONObject jsonObject=JSONObject.parseObject(jsonString);
 		System.out.println("POST: " + data);
 		response.getWriter().print(data);
@@ -37,7 +38,9 @@ public class PostHttpServer extends HttpServlet {
 
 	protected void doGet(HttpServletRequest request, HttpServletResponse response)
 			throws ServletException, IOException {
+                request.setCharacterEncoding("utf-8");
 		String params = request.getQueryString();
+                response.setCharacterEncoding("utf-8");
 		response.setContentType("text/plain; charset=UTF-8");
 		response.setStatus(200);
 		System.out.println("QueryString: " + params);
